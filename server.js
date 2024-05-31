@@ -1,7 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const { signupUserRequest, loginUserRequest } = require("./Requests");
+const {
+  signupUserRequest,
+  loginUserRequest,
+  uploadCsv,
+  parseCsv,
+  getDataRequest,
+} = require("./Requests");
 const app = express();
 
 // Connection to MongoDb
@@ -34,3 +40,5 @@ app.use(express.json());
 
 app.post("/signup", signupUserRequest);
 app.post("/login", loginUserRequest);
+app.get("/getdata", getDataRequest);
+app.post("/upload-csv", uploadCsv, parseCsv);
