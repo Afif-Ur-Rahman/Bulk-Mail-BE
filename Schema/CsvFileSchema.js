@@ -6,7 +6,7 @@ const CsvSchema = new mongoose.Schema({
   "Job Title": {type: String, default: ""},
   Company: {type: String, default: ""},
   Email: {type: String, default: ""},
-  "Company Number": {type: String, default: ""},
+  "Company Phone": {type: String, default: ""},
   Industry: {type: String, default: ""},
   City: {type: String, default: ""},
   Country: {type: String, default: ""},
