@@ -7,6 +7,7 @@ const {
   uploadCsv,
   parseCsv,
   getDataRequest,
+  changePasswordRequest,
 } = require("./Requests");
 const app = express();
 
@@ -42,3 +43,4 @@ app.post("/signup", signupUserRequest);
 app.post("/login", loginUserRequest);
 app.get("/getdata", getDataRequest);
 app.post("/upload-csv", uploadCsv, parseCsv);
+app.post("/changepass", changePasswordRequest);

@@ -4,6 +4,7 @@ const UserSchema = new mongoose.Schema({
     name: {type: String, default: ""},
     email: {type: String, default: ""},
     password: {type: String, default: ""},
+    // image: { type: String, required: true },
 });
 
 const signupUser = mongoose.model("register", UserSchema);
