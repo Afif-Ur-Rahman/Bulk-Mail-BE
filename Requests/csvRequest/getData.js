@@ -7,7 +7,9 @@ const getDataRequest = async (req, res) => {
 
     const skip = (page - 1) * limit;
 
-    const data = await saveCsv.find({})
+    const data = await saveCsv
+      .find({})
+      .sort({ _id: -1 })
       .skip(skip)
       .limit(limit);
 
@@ -18,7 +20,7 @@ const getDataRequest = async (req, res) => {
       success: true,
       data: data,
       page: page,
-      totalPages: totalPages
+      totalPages: totalPages,
     });
   } catch (error) {
     res.status(500).json({ success: false, data: error });

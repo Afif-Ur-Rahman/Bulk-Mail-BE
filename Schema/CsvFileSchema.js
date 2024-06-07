@@ -10,6 +10,7 @@ const CsvSchema = new mongoose.Schema({
   Industry: {type: String, default: ""},
   City: {type: String, default: ""},
   Country: {type: String, default: ""},
+  Status: {type: String, default: ""},
 });
 
 const saveCsv = mongoose.model("csvdata", CsvSchema);
