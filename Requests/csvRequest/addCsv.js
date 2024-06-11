@@ -41,14 +41,7 @@ const saveData = async (req, res) => {
       });
   } else {
     try {
-      const { _id } = req.body;
       const payload = req.body;
-      delete payload._id;
-
-      if (_id !== "null") {
-        const updateData = await saveCsv.findByIdAndUpdate({ _id }, payload);
-        res.status(200).json({ success: true, data: updateData });
-      }
       const newData = new saveCsv(payload);
       await newData.save();
       const updatedData = await saveCsv
@@ -58,7 +51,6 @@ const saveData = async (req, res) => {
         .limit(limit);
       const totalItems = await saveCsv.countDocuments({});
       const totalPages = Math.ceil(totalItems / limit);
-      console.log("sortedData = ", updatedData);
       res.status(200).json({
         success: true,
         data: updatedData,

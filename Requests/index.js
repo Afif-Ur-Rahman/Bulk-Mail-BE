@@ -3,7 +3,8 @@ const { signupUserRequest } = require("./User/signupRequest");
 const { uploadCsv, saveData } = require("./csvRequest/addCsv");
 const { getDataRequest } = require("./csvRequest/getData");
 const { changePasswordRequest } = require("./User/changePassRequest");
-const {updateStatusRequest} = require("./csvRequest/updateStatus");
+const { updateStatusRequest } = require("./csvRequest/updateStatus");
+const { updateDataRequest } = require("./csvRequest/updateData");
 
 module.exports = {
   loginUserRequest,
@@ -12,5 +13,6 @@ module.exports = {
   saveData,
   getDataRequest,
   changePasswordRequest,
-  updateStatusRequest
+  updateStatusRequest,
+  updateDataRequest,
 };
