@@ -10,6 +10,7 @@ const {
   changePasswordRequest,
   updateStatusRequest,
   updateDataRequest,
+  sendMailRequest,
 } = require("./Requests");
 const app = express();
 
@@ -48,3 +49,4 @@ app.post("/savedata", uploadCsv, saveData);
 app.post("/changepass", changePasswordRequest);
 app.put("/:id/status", updateStatusRequest);
 app.put("/:id/updatedata", updateDataRequest);
+app.post("/sendmails", sendMailRequest);

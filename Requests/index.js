@@ -5,6 +5,7 @@ const { getDataRequest } = require("./csvRequest/getData");
 const { changePasswordRequest } = require("./User/changePassRequest");
 const { updateStatusRequest } = require("./csvRequest/updateStatus");
 const { updateDataRequest } = require("./csvRequest/updateData");
+const { sendMailRequest } = require("./mailRequest/mailRequest");
 
 module.exports = {
   loginUserRequest,
@@ -15,4 +16,5 @@ module.exports = {
   changePasswordRequest,
   updateStatusRequest,
   updateDataRequest,
+  sendMailRequest,
 };
