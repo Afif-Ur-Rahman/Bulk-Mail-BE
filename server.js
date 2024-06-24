@@ -40,6 +40,7 @@ const corsOption = {
 };
 
 app.use(cors(corsOption));
+app.options('*', cors(corsOption));
 app.use(express.json());
 
 app.post("/signup", signupUserRequest);
