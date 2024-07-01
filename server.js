@@ -51,3 +51,5 @@ app.post("/changepass", changePasswordRequest);
 app.put("/:id/status", updateStatusRequest);
 app.put("/:id/updatedata", updateDataRequest);
 app.post("/sendmails", sendMailRequest);
+
+module.exports = app;

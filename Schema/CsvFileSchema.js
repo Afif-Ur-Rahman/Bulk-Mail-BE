@@ -13,5 +13,5 @@ const CsvSchema = new mongoose.Schema({
   Status: {type: String, default: ""},
 });
 
-const saveCsv = mongoose.model("csvdata", CsvSchema);
+const saveCsv = mongoose.model("data", CsvSchema);
 module.exports = { saveCsv };

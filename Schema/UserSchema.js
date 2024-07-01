@@ -7,6 +7,6 @@ const UserSchema = new mongoose.Schema({
     // image: { type: String, required: true },
 });
 
-const signupUser = mongoose.model("register", UserSchema);
+const signupUser = mongoose.model("user", UserSchema);
 
 module.exports = {signupUser};
