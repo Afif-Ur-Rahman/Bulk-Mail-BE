@@ -1,19 +1,21 @@
 const multer = require("multer");
 const csv = require("csv-parser");
-const fs = require("fs");
-const path = require("path");
 const { saveCsv } = require("../../Schema/CsvFileSchema");
 
-const upload = multer({ dest: "uploads/" });
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 const uploadCsv = upload.single("file");
 
 const saveData = async (req, res) => {
   const page = 1;
   const limit = 10;
   const skip = (page - 1) * limit;
+
   if (req.file) {
     const results = [];
-    fs.createReadStream(req.file.path)
+    const bufferStream = require('stream').Readable.from(req.file.buffer);
+
+    bufferStream
       .pipe(csv())
       .on("data", (data) => results.push(data))
       .on("end", async () => {
@@ -26,7 +28,6 @@ const saveData = async (req, res) => {
             .limit(limit);
           const totalItems = await saveCsv.countDocuments({});
           const totalPages = Math.ceil(totalItems / limit);
-          console.log("updatedData = ", updatedData);
           res.status(200).json({
             success: true,
             data: updatedData,
@@ -35,8 +36,6 @@ const saveData = async (req, res) => {
           });
         } catch (error) {
           res.status(500).json({ success: false, data: error });
-        } finally {
-          fs.unlinkSync(req.file.path);
         }
       });
   } else {
