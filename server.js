@@ -15,10 +15,10 @@ const {
 const app = express();
 
 // Connection to MongoDb
-const port = 5000;
-const db_url = "mongodb://127.0.0.1:27017/BulkMail";
+const port = process.env.PORT;
+const db = process.env.MONGO_DB_URI;
 mongoose
-  .connect(db_url)
+  .connect(db)
   .then(() => {
     console.log("Connected To Database");
     app.listen(port, () => {
