@@ -11,6 +11,7 @@ const CsvSchema = new mongoose.Schema({
   City: {type: String, default: ""},
   Country: {type: String, default: ""},
   Status: {type: String, default: ""},
+  "Email Status": {type: String, default: ""}
 });
 
 const saveCsv = mongoose.model("data", CsvSchema);
