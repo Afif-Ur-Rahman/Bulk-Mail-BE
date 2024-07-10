@@ -13,6 +13,7 @@ const {
   updateDataRequest,
   sendMailRequest,
 } = require("./Requests");
+const { verifyToken } = require("./middleware/authToken");
 const app = express();
 
 // Connection to MongoDb
@@ -41,16 +42,16 @@ const corsOption = {
 };
 
 app.use(cors(corsOption));
-app.options('*', cors(corsOption));
+app.options("*", cors(corsOption));
 app.use(express.json());
 
 app.post("/signup", signupUserRequest);
 app.post("/login", loginUserRequest);
-app.get("/getdata", getDataRequest);
-app.post("/savedata", uploadCsv, saveData);
-app.post("/changepass", changePasswordRequest);
-app.put("/:id/status", updateStatusRequest);
-app.put("/:id/updatedata", updateDataRequest);
-app.post("/sendmails", sendMailRequest);
+app.get("/getdata", verifyToken, getDataRequest);
+app.post("/savedata", verifyToken, uploadCsv, saveData);
+app.post("/changepass", verifyToken, changePasswordRequest);
+app.put("/:id/status", verifyToken, updateStatusRequest);
+app.put("/:id/updatedata", verifyToken, updateDataRequest);
+app.post("/sendmails", verifyToken, sendMailRequest);
 
 module.exports = app;

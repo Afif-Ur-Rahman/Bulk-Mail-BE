@@ -16,17 +16,18 @@ const signupUserRequest = async (req, res) => {
     }
 
     const hashedPass = await bcrypt.hash(password, 10);
+    const token = jwt.sign(hashedPass, "bulkmail");
     const payload = {
       _id: new mongoose.Types.ObjectId(),
       name,
       email,
       password: hashedPass,
       image,
+      token: token,
     };
 
     const newUser = new signupUser(payload);
     const response = await newUser.save();
-    const token = jwt.sign({ userId: newUser._id }, "bulkmail");
     const responseData = {
       _id: response._id,
       name: response.name,
