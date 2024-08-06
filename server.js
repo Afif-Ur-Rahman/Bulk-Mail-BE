@@ -12,6 +12,7 @@ const {
   updateStatusRequest,
   updateDataRequest,
   sendMailRequest,
+  addMailTemplate,
 } = require("./Requests");
 const { verifyToken } = require("./middleware/authToken");
 const app = express();
@@ -53,5 +54,6 @@ app.post("/changepass", verifyToken, changePasswordRequest);
 app.put("/:id/status", verifyToken, updateStatusRequest);
 app.put("/:id/updatedata", verifyToken, updateDataRequest);
 app.post("/sendmails", verifyToken, sendMailRequest);
+app.post("/addmailtemplate", verifyToken, addMailTemplate);
 
 module.exports = app;

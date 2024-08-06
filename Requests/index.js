@@ -6,6 +6,7 @@ const { changePasswordRequest } = require("./User/changePassRequest");
 const { updateStatusRequest } = require("./csvRequest/updateStatus");
 const { updateDataRequest } = require("./csvRequest/updateData");
 const { sendMailRequest } = require("./mailRequest/mailRequest");
+const { addMailTemplate } = require("./mailTemplates/addMailTemplate");
 
 module.exports = {
   loginUserRequest,
@@ -17,4 +18,5 @@ module.exports = {
   updateStatusRequest,
   updateDataRequest,
   sendMailRequest,
+  addMailTemplate,
 };

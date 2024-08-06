@@ -27,10 +27,12 @@ const sendMailRequest = async (req, res) => {
       return transporter.sendMail(mailOptions);
     });
     await Promise.all(sendMailPromises);
-    res.status(200).send("Emails sent successfully");
+    res
+      .status(200)
+      .json({ success: true, message: "Emails sent successfully" });
   } catch (error) {
     console.error("Error sending emails:", error);
-    res.status(500).json({ error: "Error sending emails" });
+    res.status(500).json({ success: false, error: "Error sending emails" });
   }
 };
 
