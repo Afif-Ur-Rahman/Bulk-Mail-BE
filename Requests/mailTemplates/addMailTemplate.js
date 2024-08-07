@@ -2,7 +2,6 @@ const { mailTemplate } = require("../../Schema/MailTemplateSchema");
 
 const addMailTemplate = async (req, res) => {
   const { subject, message } = req.body;
-  console.log("req.body = ", req.body);
 
   try {
     const payload = {

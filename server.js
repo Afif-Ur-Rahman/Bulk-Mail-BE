@@ -13,6 +13,7 @@ const {
   updateDataRequest,
   sendMailRequest,
   addMailTemplate,
+  getTemplatesRequest,
 } = require("./Requests");
 const { verifyToken } = require("./middleware/authToken");
 const app = express();
@@ -49,6 +50,7 @@ app.use(express.json());
 app.post("/signup", signupUserRequest);
 app.post("/login", loginUserRequest);
 app.get("/getdata", verifyToken, getDataRequest);
+app.get("/getmailtemplates", verifyToken, getTemplatesRequest);
 app.post("/savedata", verifyToken, uploadCsv, saveData);
 app.post("/changepass", verifyToken, changePasswordRequest);
 app.put("/:id/status", verifyToken, updateStatusRequest);
