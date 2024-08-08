@@ -12,6 +12,7 @@ const addMailTemplate = async (req, res) => {
     const newMailTemplate = new mailTemplate(payload);
     const response = await newMailTemplate.save();
     const responseData = {
+      _id: response._id,
       subject: response.subject,
       message: response.message,
     };

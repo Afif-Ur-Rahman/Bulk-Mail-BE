@@ -8,6 +8,12 @@ const { updateDataRequest } = require("./csvRequest/updateData");
 const { sendMailRequest } = require("./mailRequest/mailRequest");
 const { addMailTemplate } = require("./mailTemplates/addMailTemplate");
 const { getTemplatesRequest } = require("./mailTemplates/getTemplates");
+const {
+  updateTemplatesRequest,
+} = require("./mailTemplates/updateMailTemplate");
+const {
+  deleteTemplatesRequest,
+} = require("./mailTemplates/deleteMailTemplate");
 
 module.exports = {
   loginUserRequest,
@@ -21,4 +27,6 @@ module.exports = {
   sendMailRequest,
   addMailTemplate,
   getTemplatesRequest,
+  updateTemplatesRequest,
+  deleteTemplatesRequest,
 };
